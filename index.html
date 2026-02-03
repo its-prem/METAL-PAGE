@@ -94,7 +94,6 @@ input:focus{border-color:#00b86b}
     <h1>Payment Successful</h1>
     <p>Details fill karein, admin ko WhatsApp message chala jayega</p>
 
-    <!-- FORM -->
     <form onsubmit="sendWhatsApp(event)">
       <input type="text" id="name" placeholder="Student Name" required>
       <input type="text" id="college" placeholder="College Name" required>
@@ -116,31 +115,19 @@ function sendWhatsApp(e){
   const branch = document.getElementById("branch").value;
   const subject = document.getElementById("subject").value;
 
-  // --- DESIGN 1: Professional Form Style (Bold + Emojis) ---
+  // --- DESIGN 1: Professional Form Style (Updated with Password) ---
   const message = 
 `✅ PAYMENT VERIFIED & SUBMITTED
 ━━━━━━━━━━━━━━━━━━━━━
-
 👤 Name: ${name}
 🏛 College: ${college}
 🎓 Branch: ${branch}
 📚 Subject: ${subject}
 ━━━━━━━━━━━━━━━━━━━━━
+🔑 PDF Password: PREMium Mind
+━━━━━━━━━━━━━━━━━━━━━
 ⏳ Status: Pending Admin Approval
 ℹ️ Note: Admin will verify and respond within 1 hour.`;
-
-  // Agar aapko "Computer Code/Box" jaisa look chahiye to ye niche wala use karein:
-  /*
-  const message = 
-  "```╔══════════════════════╗\n" +
-  "║   PAYMENT RECEIPT    ║\n" +
-  "╠══════════════════════╣\n" +
-  "║ Name: " + name.padEnd(15) + "║\n" +
-  "║ Coll: " + college.padEnd(15) + "║\n" +
-  "║ Brnh: " + branch.padEnd(15) + "║\n" +
-  "║ Subj: " + subject.padEnd(15) + "║\n" +
-  "╚══════════════════════╝```";
-  */
 
   const phone = "9153950552";
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
